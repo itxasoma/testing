@@ -1,0 +1,3 @@
+For the network analysis, run the Python algorithm network_analyze. Just change the network data file location.
+
+To generate the files from the SIS model, we need the FORTRAN algorithm SIS_dyn. We must change the file where the network's edge list is saved, and we must have the r1279block file (used to generate random numbers) in the same folder. To generate the figures, use the Python algorithm network_dyn_plots.

@@ -1,0 +1,58 @@
+# Instructions to compile and reproduce results
+The code is organised in several files that include Python files and Fortran files. 
+The first part of the project is done with Fortran to Python3 library, so to be able 
+to compile and reproduce the code have an actualized version of f2py3 is needed.
+In case that it is not found in the computer, it is usually installed together with Ptyhon3.
+
+The second part of the project, the dynamic process, is done with pure Fortran because 
+sintax of modern Fortran (2003) is used and is not supported in f2py3.
+About how to compile, it can be done manually or with the Makefile.
+
+## Manual compilation
+
+To compile the code manually for the first part of the project do in the terminal:
+
+>>> f2py3 -c -m network subroutine.f90
+
+and
+
+>>> f2py3 -c -m ass4 assignment4.py
+
+From this compilation some .so files will be created. Later, open the scripts
+asignment?.py (? can be 1, 4 or 5) in a Python interface and run it in the terminal.
+That will generate the figures and files of each assignment.
+
+The second part, the dynamic process, can be compiler manually doing in the terminal:
+
+>>> gfortran module_dp.f90 dynamic_process.f90
+
+This will generate a executable a.out and the program can be runned by doing in the terminal
+
+>>> ./a.out
+
+It is important to point out that for storing the output files of the simulation the folder 
+output has to be created beforehand. Finally, to create the plots the script plots_dynamics.py
+has to be used. It should be run in a python terminal as the rest of the .py programs.
+
+## Makefile compilation
+Since this is a little bothersome a Makefile has been created. This makefile automatically 
+compiles the Fortran programs, those of f2py3 and the pure Fortran, and generates the directory
+needed to store the output files. It is executed by doing in terminal:
+
+>>> make
+
+Later for running the program there is several possible executable: one for each assignment 
+(1,4,5), one for the dinamic process and one to obtain the plots of the dynamic process. The 
+order to execute are:
+
+>>> run_ass1
+
+>>> run_ass4
+
+>>> run_ass5
+
+>>> run_dynam
+
+>>> run_plots_dyn
+
+However it is recomended that the python programs are run using some python interface.
